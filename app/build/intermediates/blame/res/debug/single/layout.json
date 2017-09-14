@@ -1,0 +1,90 @@
+[
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\about_dialog.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\about_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_color_bar.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_color_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_read_pixels.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_read_pixels.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_play_movie.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_play_movie.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_chor_test.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_chor_test.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_codec_open.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_codec_open.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_texture_view_gl.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_texture_view_gl.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_hardware_scaler.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_hardware_scaler.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_multi_surface_test.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_multi_surface_test.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_gles_info.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_gles_info.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\work_dialog.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\work_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_soft_input_surface.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_soft_input_surface.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_camera_capture.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_camera_capture.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_continuous_capture.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_continuous_capture.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_texture_view_canvas.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_texture_view_canvas.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_texture_upload.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_texture_upload.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_scheduled_swap.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_scheduled_swap.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_double_decode.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_double_decode.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_play_movie_surface.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_play_movie_surface.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_texture_from_camera.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_texture_from_camera.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_record_fbo.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_record_fbo.xml"
+    }
+]

@@ -1,0 +1,22 @@
+#Thu Sep 14 17:45:43 CST 2017
+renamed.6=classes4.dex
+renamed.5=classes2.dex
+renamed.4=classes3.dex
+renamed.3=classes.dex
+renamed.2=classes5.dex
+renamed.1=classes6.dex
+renamed.0=classes7.dex
+base.6=C\:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_d405ad025eb81a49b2b319454364138b745f4d7c
+base.5=C\:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_7ba79e2441e69a3b117fe230ac642be02fc53c1b
+base.4=C\:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_a46242c281afc52fe7536e2c55bc0a429b8a75b2
+base.3=C\:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_515a77e0375d44a3e18b6989e06cc4319fc90fa9
+base.2=C\:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_e75f4e17b131269cdecdde4223b78fbecdc8313e
+base.1=C\:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_ef87dcc8aac268487b94732aa4b4b9a41b52b8ad
+base.0=C\:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-annotations-25.3.1_3d8bbcda03039ae53ee46c72097c832ea4e1b941
+file.6=C\:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_d405ad025eb81a49b2b319454364138b745f4d7c\\classes.dex
+file.5=C\:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_7ba79e2441e69a3b117fe230ac642be02fc53c1b\\classes.dex
+file.4=C\:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_a46242c281afc52fe7536e2c55bc0a429b8a75b2\\classes.dex
+file.3=C\:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_515a77e0375d44a3e18b6989e06cc4319fc90fa9\\classes.dex
+file.2=C\:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_e75f4e17b131269cdecdde4223b78fbecdc8313e\\classes.dex
+file.1=C\:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_ef87dcc8aac268487b94732aa4b4b9a41b52b8ad\\classes.dex
+file.0=C\:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-annotations-25.3.1_3d8bbcda03039ae53ee46c72097c832ea4e1b941\\classes.dex
