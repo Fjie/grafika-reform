@@ -261,7 +261,8 @@ public class MoviePlayer {
 
         boolean outputDone = false;
         boolean inputDone = false;
-        while (!outputDone) {// TODO: 2017/9/14 循环输出
+        // TODO: 2017/9/14 循环输出
+        while (!outputDone) {
             if (VERBOSE) Log.d(TAG, "loop");
             if (mIsStopRequested) {
                 Log.d(TAG, "Stop requested");
@@ -333,6 +334,7 @@ public class MoviePlayer {
                         Log.d(TAG, "startup lag " + ((nowNsec-firstInputTimeNsec) / 1000000.0) + " ms");
                         firstInputTimeNsec = 0;// TODO: 2017/9/14 刷新标记？
                     }
+                    // TODO: 2017/9/14  这一波是什么操作？
                     boolean doLoop = false;
                     if (VERBOSE) Log.d(TAG, "surface decoder given buffer " + decoderStatus +" (size=" + mBufferInfo.size + ")");
                     if ((mBufferInfo.flags & MediaCodec.BUFFER_FLAG_END_OF_STREAM) != 0) {
@@ -344,23 +346,26 @@ public class MoviePlayer {
                         }
                     }
 
-                    boolean doRender = (mBufferInfo.size != 0);
+                    boolean doRender = (mBufferInfo.size != 0);// TODO: 2017/9/14 buf尺寸不为0做渲染
 
+                    // TODO: 2017/9/14 想办法控制速率
                     // As soon as we call releaseOutputBuffer, the buffer will be forwarded
                     // to SurfaceTexture to convert to a texture.  We can't control when it
                     // appears on-screen, but we can manage the pace at which we release
                     // the buffers.
                     if (doRender && frameCallback != null) {
-                        frameCallback.preRender(mBufferInfo.presentationTimeUs);
+                        frameCallback.preRender(mBufferInfo.presentationTimeUs);// TODO: 2017/9/18 输出回调渲染前
                     }
+                    // TODO: 2017/9/18 通知解码器释放数据，如果doRender为true意味着为解码器配置了surface，解码器会先将数据放到surface
+                    /*If you configured the codec with an * output surface, setting {@code render} to {@code true}*/
                     decoder.releaseOutputBuffer(decoderStatus, doRender);
                     if (doRender && frameCallback != null) {
-                        frameCallback.postRender();
+                        frameCallback.postRender();// TODO: 2017/9/18 渲染后
                     }
 
                     if (doLoop) {
                         Log.d(TAG, "Reached EOS, looping");
-                        extractor.seekTo(0, MediaExtractor.SEEK_TO_CLOSEST_SYNC);
+                        extractor.seekTo(0, MediaExtractor.SEEK_TO_CLOSEST_SYNC);// TODO: 2017/9/18 seek到0？
                         inputDone = false;
                         decoder.flush();    // reset decoder state
                         frameCallback.loopReset();

@@ -32,7 +32,7 @@ import com.android.grafika.pages.MainActivity;
  * <p>
  * Thread restrictions are noted in the method descriptions.  The FrameCallback overrides should
  * only be called from the MoviePlayer.
- */
+ */// TODO: 2017/9/18  控制速度的
 public class SpeedControlCallback implements MoviePlayer.FrameCallback {
     private static final String TAG = MainActivity.TAG;
     private static final boolean CHECK_SLEEP_TIME = false;
