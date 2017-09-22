@@ -24,16 +24,16 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int about_item=0x7f090055;
+        public static final int about_item=0x7f090056;
         public static final int cameraFilter_spinner=0x7f090003;
-        public static final int cameraOnTexture_surfaceView=0x7f090040;
+        public static final int cameraOnTexture_surfaceView=0x7f090041;
         public static final int cameraOutputFileLabel=0x7f090005;
         public static final int cameraOutputFile_text=0x7f090006;
         public static final int cameraParams_text=0x7f090004;
         public static final int cameraPreview_afl=0x7f090000;
         public static final int cameraPreview_surfaceView=0x7f090002;
-        public static final int canvasTextureView=0x7f09004e;
-        public static final int canvasTextureViewCaption_text=0x7f09004d;
+        public static final int canvasTextureView=0x7f09004f;
+        public static final int canvasTextureViewCaption_text=0x7f09004e;
         public static final int capture_button=0x7f09000c;
         public static final int capturedVideoDesc_text=0x7f09000d;
         public static final int codeOpenGc_button=0x7f090009;
@@ -45,21 +45,22 @@ public final class R {
         public static final int continuousCapture_surfaceView=0x7f09000f;
         public static final int double1_texture_view=0x7f090011;
         public static final int double2_texture_view=0x7f090012;
-        public static final int fboActivity_surfaceView=0x7f09002e;
-        public static final int fboRecord_button=0x7f09002f;
+        public static final int et_input_fps=0x7f090029;
+        public static final int fboActivity_surfaceView=0x7f09002f;
+        public static final int fboRecord_button=0x7f090030;
         public static final int flatShading_checkbox=0x7f09001e;
-        public static final int frameRateLabel_text=0x7f090033;
-        public static final int frameRateValue_text=0x7f090034;
-        public static final int gfxResultLabel_text=0x7f09002c;
-        public static final int gfxResult_text=0x7f09002d;
-        public static final int gfxRunTest_button=0x7f09002b;
-        public static final int glTextureView=0x7f090050;
-        public static final int glTextureViewCaption_text=0x7f09004f;
+        public static final int frameRateLabel_text=0x7f090034;
+        public static final int frameRateValue_text=0x7f090035;
+        public static final int gfxResultLabel_text=0x7f09002d;
+        public static final int gfxResult_text=0x7f09002e;
+        public static final int gfxRunTest_button=0x7f09002c;
+        public static final int glTextureView=0x7f090051;
+        public static final int glTextureViewCaption_text=0x7f090050;
         public static final int glesInfoFile_text=0x7f090014;
         public static final int glesInfoSave_button=0x7f090013;
         public static final int glesInfo_text=0x7f090015;
-        public static final int glesVersionLabel_text=0x7f090031;
-        public static final int glesVersionValue_text=0x7f090032;
+        public static final int glesVersionLabel_text=0x7f090032;
+        public static final int glesVersionValue_text=0x7f090033;
         public static final int hardwareScaler_surfaceView=0x7f090016;
         public static final int locked60fps_checkbox=0x7f090026;
         public static final int loopPlayback_checkbox=0x7f090028;
@@ -69,47 +70,47 @@ public final class R {
         public static final int multiSurfaceView1=0x7f09001f;
         public static final int multiSurfaceView2=0x7f090020;
         public static final int multiSurfaceView3=0x7f090021;
-        public static final int nowRecording_text=0x7f090030;
+        public static final int nowRecording_text=0x7f090031;
         public static final int playMovieFile_spinner=0x7f090025;
-        public static final int playMovie_afl=0x7f090029;
-        public static final int playMovie_surface=0x7f09002a;
+        public static final int playMovie_afl=0x7f09002a;
+        public static final int playMovie_surface=0x7f09002b;
         public static final int play_stop_button=0x7f090024;
-        public static final int recDrawTwice_radio=0x7f090035;
-        public static final int recFbo_radio=0x7f090036;
-        public static final int recFramebuffer_radio=0x7f090037;
+        public static final int recDrawTwice_radio=0x7f090036;
+        public static final int recFbo_radio=0x7f090037;
+        public static final int recFramebuffer_radio=0x7f090038;
         public static final int recording_text=0x7f090010;
-        public static final int regenerateContent_item=0x7f090054;
-        public static final int scheduledSwapAheadLabel_text=0x7f09003b;
-        public static final int scheduledSwapAhead_spinner=0x7f09003c;
-        public static final int scheduledSwapRefresh_text=0x7f09003d;
-        public static final int scheduledSwapStatus_text=0x7f09003e;
-        public static final int scheduledSwapUpdateLabel_text=0x7f090039;
-        public static final int scheduledSwapUpdate_spinner=0x7f09003a;
-        public static final int scheduledSwap_surfaceView=0x7f090038;
-        public static final int softInputResult_text=0x7f09003f;
+        public static final int regenerateContent_item=0x7f090055;
+        public static final int scheduledSwapAheadLabel_text=0x7f09003c;
+        public static final int scheduledSwapAhead_spinner=0x7f09003d;
+        public static final int scheduledSwapRefresh_text=0x7f09003e;
+        public static final int scheduledSwapStatus_text=0x7f09003f;
+        public static final int scheduledSwapUpdateLabel_text=0x7f09003a;
+        public static final int scheduledSwapUpdate_spinner=0x7f09003b;
+        public static final int scheduledSwap_surfaceView=0x7f090039;
+        public static final int softInputResult_text=0x7f090040;
         public static final int surfaceSizeFull_radio=0x7f09001d;
         public static final int surfaceSizeMedium_radio=0x7f09001c;
         public static final int surfaceSizeSmall_radio=0x7f09001b;
         public static final int surfaceSizeTiny_radio=0x7f09001a;
         public static final int surfaceSize_radiogroup=0x7f090019;
-        public static final int textureResultLabel_text=0x7f09004b;
-        public static final int textureResult_text=0x7f09004c;
-        public static final int textureRunTest_button=0x7f09004a;
-        public static final int tfcCameraParams_text=0x7f090041;
-        public static final int tfcRectSize_text=0x7f090042;
-        public static final int tfcRotateLabel_text=0x7f090046;
-        public static final int tfcRotate_seekbar=0x7f090049;
-        public static final int tfcSizeLabel_text=0x7f090047;
-        public static final int tfcSize_seekbar=0x7f090048;
-        public static final int tfcZoomArea_text=0x7f090043;
-        public static final int tfcZoomLabel_text=0x7f090044;
-        public static final int tfcZoom_seekbar=0x7f090045;
+        public static final int textureResultLabel_text=0x7f09004c;
+        public static final int textureResult_text=0x7f09004d;
+        public static final int textureRunTest_button=0x7f09004b;
+        public static final int tfcCameraParams_text=0x7f090042;
+        public static final int tfcRectSize_text=0x7f090043;
+        public static final int tfcRotateLabel_text=0x7f090047;
+        public static final int tfcRotate_seekbar=0x7f09004a;
+        public static final int tfcSizeLabel_text=0x7f090048;
+        public static final int tfcSize_seekbar=0x7f090049;
+        public static final int tfcZoomArea_text=0x7f090044;
+        public static final int tfcZoomLabel_text=0x7f090045;
+        public static final int tfcZoom_seekbar=0x7f090046;
         public static final int toggleRecording_button=0x7f090001;
-        public static final int toggleRelease_button=0x7f090051;
+        public static final int toggleRelease_button=0x7f090052;
         public static final int viewSizeLabel_text=0x7f090017;
         public static final int viewSizeValue_text=0x7f090018;
-        public static final int workJobName_text=0x7f090052;
-        public static final int work_progress=0x7f090053;
+        public static final int workJobName_text=0x7f090053;
+        public static final int work_progress=0x7f090054;
     }
     public static final class layout {
         public static final int about_dialog=0x7f030000;
@@ -241,15 +242,8 @@ public final class R {
     public static final class style {
         /**  API 11 theme customizations can go here. 
  API 14 theme customizations can go here. 
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
          */
         public static final int AppBaseTheme=0x7f050000;
-        /**  All customizations that are NOT specific to a particular API-level can go here. 
-         */
         public static final int AppTheme=0x7f050001;
     }
 }

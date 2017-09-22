@@ -57,7 +57,7 @@
     <string name="glesVersionValue">"?"</string>
     <string name="halt">Halt</string>
     <string name="hello_world">Hello, world!</string>
-    <string name="locked60fps_checkbox">Play at 60fps</string>
+    <string name="locked60fps_checkbox">按fps播，默认60</string>
     <string name="loopPlayback_checkbox">Loop playback</string>
     <string name="multiSurfaceMessage">This is a test!</string>
     <string name="nowRecording">" [RECORDING]"</string>
@@ -127,13 +127,9 @@
     <string name="viewSizeLabel">Initial view size:</string>
     <string name="workJobName_text">Working…</string>
     <style name="AppBaseTheme" parent="android:Theme.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
+        
     </style>
     <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        
     </style>
 </resources>

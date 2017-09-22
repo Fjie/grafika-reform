@@ -64,4 +64,13 @@
         android:layout_alignLeft="@+id/play_stop_button"
         android:layout_below="@+id/locked60fps_checkbox" />
 
+    <EditText
+        android:id="@+id/et_input_fps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:hint="fps"
+        android:layout_toEndOf="@+id/playMovieFile_spinner"
+        android:inputType="numberSigned" />
+
 </RelativeLayout>

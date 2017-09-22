@@ -354,6 +354,7 @@ public class MoviePlayer {
                     // appears on-screen, but we can manage the pace at which we release
                     // the buffers.
                     if (doRender && frameCallback != null) {
+                        // TODO: 2017/9/22 号外号外，这里传入视频帧携带的微秒信息，用于计算视频原速率
                         frameCallback.preRender(mBufferInfo.presentationTimeUs);// TODO: 2017/9/18 输出回调渲染前
                     }
                     // TODO: 2017/9/18 通知解码器释放数据，如果doRender为true意味着为解码器配置了surface，解码器会先将数据放到surface
@@ -404,13 +405,13 @@ public class MoviePlayer {
      * <p>
      * The PlayerFeedback callbacks will execute on the thread that creates the object,
      * assuming that thread has a looper.  Otherwise, they will execute on the main looper.
-     */
+     */// TODO: 2017/9/21 播放栈
     public static class PlayTask implements Runnable {
         private static final int MSG_PLAY_STOPPED = 0;
 
-        private MoviePlayer mPlayer;
-        private PlayerFeedback mFeedback;
-        private boolean mDoLoop;
+        private MoviePlayer mPlayer;// TODO: 2017/9/21 播放控件
+        private PlayerFeedback mFeedback;// TODO: 2017/9/21 回调
+        private boolean mDoLoop;// TODO: 2017/9/21 循环开关
         private Thread mThread;
         private LocalHandler mLocalHandler;
 
@@ -422,7 +423,7 @@ public class MoviePlayer {
          *
          * @param player The player object, configured with control and output.
          * @param feedback UI feedback object.
-         */
+         */// TODO: 2017/9/22 构造器传入播放控件和回调
         public PlayTask(MoviePlayer player, PlayerFeedback feedback) {
             mPlayer = player;
             mFeedback = feedback;
@@ -430,9 +431,6 @@ public class MoviePlayer {
             mLocalHandler = new LocalHandler();
         }
 
-        /**
-         * Sets the loop mode.  If true, playback will loop forever.
-         */
         public void setLoopMode(boolean loopMode) {
             mDoLoop = loopMode;
         }
@@ -441,7 +439,7 @@ public class MoviePlayer {
          * Creates a new thread, and starts execution of the player.
          */
         public void execute() {
-            mPlayer.setLoopMode(mDoLoop);
+            mPlayer.setLoopMode(mDoLoop);// TODO: 2017/9/22 状态转移
             mThread = new Thread(this, "Movie Player");
             mThread.start();
         }
@@ -453,7 +451,7 @@ public class MoviePlayer {
          */
         public void requestStop() {
             mPlayer.requestStop();
-        }
+        }// TODO: 2017/9/22 状态转移
 
         /**
          * Wait for the player to stop.
@@ -464,7 +462,7 @@ public class MoviePlayer {
             synchronized (mStopLock) {
                 while (!mStopped) {
                     try {
-                        mStopLock.wait();
+                        mStopLock.wait();// TODO: 2017/9/22 线程阻塞
                     } catch (InterruptedException ie) {
                         // discard
                     }
@@ -475,7 +473,7 @@ public class MoviePlayer {
         @Override
         public void run() {
             try {
-                mPlayer.play();
+                mPlayer.play();// TODO: 2017/9/22 播放ing
             } catch (IOException ioe) {
                 throw new RuntimeException(ioe);
             } finally {
@@ -499,7 +497,7 @@ public class MoviePlayer {
                 switch (what) {
                     case MSG_PLAY_STOPPED:
                         PlayerFeedback fb = (PlayerFeedback) msg.obj;
-                        fb.playbackStopped();
+                        fb.playbackStopped();// TODO: 2017/9/22 主线程回调
                         break;
                     default:
                         throw new RuntimeException("Unknown msg " + what);

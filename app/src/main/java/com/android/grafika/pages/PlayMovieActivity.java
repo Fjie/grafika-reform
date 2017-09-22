@@ -16,20 +16,22 @@
 
 package com.android.grafika.pages;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.graphics.Matrix;
 import android.graphics.SurfaceTexture;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.AdapterView.OnItemSelectedListener;
 
 import com.android.grafika.MiscUtils;
 import com.android.grafika.MoviePlayer;
@@ -49,29 +51,32 @@ import java.io.IOException;
  * rather than a custom layout.
  * <p>
  * TODO: investigate crash when screen is rotated while movie is playing (need
- *       to have onPause() wait for playback to stop)
+ * to have onPause() wait for playback to stop)
  */
 // TODO: 2017/9/14 OpenGL播放视频
 public class PlayMovieActivity extends Activity implements OnItemSelectedListener,
         TextureView.SurfaceTextureListener, MoviePlayer.PlayerFeedback {
     private static final String TAG = MainActivity.TAG;
 
-    private TextureView mTextureView;// TODO: 2017/9/14 纹理器
-    private String[] mMovieFiles;
-    private int mSelectedMovie;
+    private TextureView mTextureView;// TODO: 2017/9/14 纹理器，直接当view用了
+    private String[] mMovieFiles;// TODO: 2017/9/22 视频文件
+    private int mSelectedMovie;// TODO: 2017/9/22 选中下标
     private boolean mShowStopLabel;
+    // TODO: 2017/9/22 播放栈，持有的播放控件，传入视频文件和纹理器，逐帧解析视频传到纹理器
     private MoviePlayer.PlayTask mPlayTask;
-    private boolean mSurfaceTextureReady = false;
+    private boolean mSurfaceTextureReady = false;// TODO: 2017/9/22 初始化标记，surface相关的常用
 
     private final Object mStopper = new Object();   // used to signal stop
+    private EditText etInputFps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_movie);
+        initView();
 
-        mTextureView = (TextureView) findViewById(R.id.movie_texture_view);
-        mTextureView.setSurfaceTextureListener(this);
+        mTextureView = (TextureView) findViewById(R.id.movie_texture_view);// TODO: 2017/9/22 纹理器直接当view用了
+        mTextureView.setSurfaceTextureListener(this);// TODO: 2017/9/22 给个回调
 
         // Populate file-selection spinner.
         Spinner spinner = (Spinner) findViewById(R.id.playMovieFile_spinner);
@@ -85,71 +90,9 @@ public class PlayMovieActivity extends Activity implements OnItemSelectedListene
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-        updateControls();
+        updateControls();// TODO: 2017/9/22 更新视图状态
     }
 
-    @Override
-    protected void onResume() {
-        Log.d(TAG, "PlayMovieActivity onResume");
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        Log.d(TAG, "PlayMovieActivity onPause");
-        super.onPause();
-        // We're not keeping track of the state in static fields, so we need to shut the
-        // playback down.  Ideally we'd preserve the state so that the player would continue
-        // after a device rotation.
-        //
-        // We want to be sure that the player won't continue to send frames after we pause,
-        // because we're tearing the view down.  So we wait for it to stop here.
-        if (mPlayTask != null) {
-            stopPlayback();
-            mPlayTask.waitForStop();
-        }
-    }
-
-    @Override
-    public void onSurfaceTextureAvailable(SurfaceTexture st, int width, int height) {
-        // There's a short delay between the start of the activity and the initialization
-        // of the SurfaceTexture that backs the TextureView.  We don't want to try to
-        // send a video stream to the TextureView before it has initialized, so we disable
-        // the "play" button until this callback fires.
-        Log.d(TAG, "SurfaceTexture ready (" + width + "x" + height + ")");
-        mSurfaceTextureReady = true;
-        updateControls();
-    }
-
-    @Override
-    public void onSurfaceTextureSizeChanged(SurfaceTexture st, int width, int height) {
-        // ignore
-    }
-
-    @Override
-    public boolean onSurfaceTextureDestroyed(SurfaceTexture st) {
-        mSurfaceTextureReady = false;
-        // assume activity is pausing, so don't need to update controls
-        return true;    // caller should release ST
-    }
-
-    @Override
-    public void onSurfaceTextureUpdated(SurfaceTexture surface) {
-        // ignore
-    }
-
-    /*
-     * Called when the movie Spinner gets touched.
-     */
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-        Spinner spinner = (Spinner) parent;
-        mSelectedMovie = spinner.getSelectedItemPosition();
-
-        Log.d(TAG, "onItemSelected: " + mSelectedMovie + " '" + mMovieFiles[mSelectedMovie] + "'");
-    }
-
-    @Override public void onNothingSelected(AdapterView<?> parent) {}
 
     /**
      * onClick handler for "play"/"stop" button.
@@ -157,10 +100,10 @@ public class PlayMovieActivity extends Activity implements OnItemSelectedListene
     public void clickPlayStop(@SuppressWarnings("unused") View unused) {
         if (mShowStopLabel) {
             Log.d(TAG, "stopping movie");
-            stopPlayback();
+            stopPlayback();// TODO: 2017/9/22 调用停止播放，到回调中更新视图
             // Don't update the controls here -- let the task thread do it after the movie has
             // actually stopped.
-            //mShowStopLabel = false;
+            //mShowStopLabel = false; // TODO: 2017/9/22 这是一个悲伤的故事
             //updateControls();
         } else {
             if (mPlayTask != null) {
@@ -168,16 +111,22 @@ public class PlayMovieActivity extends Activity implements OnItemSelectedListene
                 return;
             }
             Log.d(TAG, "starting movie");
-            SpeedControlCallback callback = new SpeedControlCallback();
+            // TODO: 2017/9/22 准备播放控件给播放栈
+            // TODO: 2017/9/22 准备播放，配置组件给播放控件
+            SpeedControlCallback callback = new SpeedControlCallback();// TODO: 2017/9/22 速度控制回调
             if (((CheckBox) findViewById(R.id.locked60fps_checkbox)).isChecked()) {
                 // TODO: consider changing this to be "free running" mode
-                callback.setFixedPlaybackRate(60);
+                String sFps = etInputFps.getText().toString();
+                // TODO: 2017/9/22 设置速度？fps? 好像有极限，大概是cpu解析每帧的速率
+                callback.setFixedPlaybackRate(TextUtils.isEmpty(sFps) ? 60:Integer.parseInt(sFps));
+                // TODO: 2017/9/22 要实现极限速度需要在媒体解析层手动丢帧
             }
             SurfaceTexture st = mTextureView.getSurfaceTexture();
-            Surface surface = new Surface(st);
+            Surface surface = new Surface(st);// TODO: 2017/9/22 纹理
             MoviePlayer player = null;
             try {
-                 player = new MoviePlayer(
+                // TODO: 2017/9/22 传递视频、纹理、回调给播放器
+                player = new MoviePlayer(
                         new File(getFilesDir(), mMovieFiles[mSelectedMovie]), surface, callback);
             } catch (IOException ioe) {
                 Log.e(TAG, "Unable to play movie", ioe);
@@ -186,6 +135,7 @@ public class PlayMovieActivity extends Activity implements OnItemSelectedListene
             }
             adjustAspectRatio(player.getVideoWidth(), player.getVideoHeight());
 
+            // TODO: 2017/9/22 播放控件给播放栈
             mPlayTask = new MoviePlayer.PlayTask(player, this);
             if (((CheckBox) findViewById(R.id.loopPlayback_checkbox)).isChecked()) {
                 mPlayTask.setLoopMode(true);
@@ -193,7 +143,7 @@ public class PlayMovieActivity extends Activity implements OnItemSelectedListene
 
             mShowStopLabel = true;
             updateControls();
-            mPlayTask.execute();
+            mPlayTask.execute();// TODO: 2017/9/22 执行
         }
     }
 
@@ -264,5 +214,75 @@ public class PlayMovieActivity extends Activity implements OnItemSelectedListene
         check.setEnabled(!mShowStopLabel);
         check = (CheckBox) findViewById(R.id.loopPlayback_checkbox);
         check.setEnabled(!mShowStopLabel);
+    }
+
+    @Override
+    protected void onResume() {
+        Log.d(TAG, "PlayMovieActivity onResume");
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        Log.d(TAG, "PlayMovieActivity onPause");
+        super.onPause();
+        // We're not keeping track of the state in static fields, so we need to shut the
+        // playback down.  Ideally we'd preserve the state so that the player would continue
+        // after a device rotation.
+        //
+        // We want to be sure that the player won't continue to send frames after we pause,
+        // because we're tearing the view down.  So we wait for it to stop here.
+        if (mPlayTask != null) {
+            stopPlayback();
+            mPlayTask.waitForStop();
+        }
+    }
+
+
+    @Override
+    public void onSurfaceTextureAvailable(SurfaceTexture st, int width, int height) {
+        // There's a short delay between the start of the activity and the initialization
+        // of the SurfaceTexture that backs the TextureView.  We don't want to try to
+        // send a video stream to the TextureView before it has initialized, so we disable
+        // the "play" button until this callback fires.
+        Log.d(TAG, "SurfaceTexture ready (" + width + "x" + height + ")");
+        mSurfaceTextureReady = true;// TODO: 2017/9/22 纹理器可用
+        updateControls();// TODO: 2017/9/22 更新视图状态
+    }
+
+    @Override
+    public void onSurfaceTextureSizeChanged(SurfaceTexture st, int width, int height) {
+        // ignore
+    }
+
+    @Override
+    public boolean onSurfaceTextureDestroyed(SurfaceTexture st) {
+        mSurfaceTextureReady = false;
+        // assume activity is pausing, so don't need to update controls
+        return true;    // caller should release ST
+    }
+
+    @Override
+    public void onSurfaceTextureUpdated(SurfaceTexture surface) {
+        // ignore
+    }
+
+    /*
+     * Called when the movie Spinner gets touched.
+     */
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+        Spinner spinner = (Spinner) parent;
+        mSelectedMovie = spinner.getSelectedItemPosition();
+
+        Log.d(TAG, "onItemSelected: " + mSelectedMovie + " '" + mMovieFiles[mSelectedMovie] + "'");
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+    }
+
+    private void initView() {
+        etInputFps = (EditText) findViewById(R.id.et_input_fps);
     }
 }
