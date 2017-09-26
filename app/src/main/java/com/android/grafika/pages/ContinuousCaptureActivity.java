@@ -31,9 +31,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.app.Activity;
 
-import com.android.grafika.AspectFrameLayout;
-import com.android.grafika.CameraUtils;
-import com.android.grafika.CircularEncoder;
+import com.android.grafika.other.AspectFrameLayout;
+import com.android.grafika.other.CameraUtils;
+import com.android.grafika.core.coder.CircularEncoder;
 import com.android.grafika.R;
 import com.android.grafika.gles.EglCore;
 import com.android.grafika.gles.FullFrameRect;

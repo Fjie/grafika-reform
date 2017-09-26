@@ -34,10 +34,10 @@ import android.app.Activity;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 
-import com.android.grafika.AspectFrameLayout;
-import com.android.grafika.CameraUtils;
+import com.android.grafika.other.AspectFrameLayout;
+import com.android.grafika.other.CameraUtils;
 import com.android.grafika.R;
-import com.android.grafika.TextureMovieEncoder;
+import com.android.grafika.core.coder.TextureMovieEncoder;
 import com.android.grafika.gles.FullFrameRect;
 import com.android.grafika.gles.Texture2dProgram;
 

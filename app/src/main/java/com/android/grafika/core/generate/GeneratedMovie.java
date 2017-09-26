@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.grafika;
+package com.android.grafika.core.generate;
 
 import android.media.MediaCodec;
 import android.media.MediaCodecInfo;
@@ -33,7 +33,7 @@ import java.nio.ByteBuffer;
 
 /**
  * Base class for generated movies.
- */
+ */// TODO: 2017/9/25 造视频？
 public abstract class GeneratedMovie implements Content {
     private static final String TAG = MainActivity.TAG;
     private static final boolean VERBOSE = false;
@@ -42,14 +42,14 @@ public abstract class GeneratedMovie implements Content {
 
     // set by sub-class to indicate that the movie has been generated
     // TODO: remove this now?
-    protected boolean mMovieReady = false;
+    protected boolean mMovieReady = false;// TODO: 2017/9/25 初始化开关
 
     // "live" state during recording
-    private MediaCodec.BufferInfo mBufferInfo;
-    private MediaCodec mEncoder;
-    private MediaMuxer mMuxer;
-    private EglCore mEglCore;
-    private WindowSurface mInputSurface;
+    private MediaCodec.BufferInfo mBufferInfo;// TODO: 2017/9/25 媒体信息buf
+    private MediaCodec mEncoder;// TODO: 2017/9/25 编解码器
+    private MediaMuxer mMuxer;// TODO: 2017/9/25 用来混合的？
+    private EglCore mEglCore;// TODO: 2017/9/25 大肘子
+    private WindowSurface mInputSurface;// TODO: 2017/9/25 大肘子
     private int mTrackIndex;
     private boolean mMuxerStarted;
 

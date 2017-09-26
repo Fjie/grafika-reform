@@ -30,7 +30,7 @@ import android.view.Surface;
  * Core EGL state (display, context, config).
  * <p>
  * The EGLContext must only be attached to one thread at a time.  This class is not thread-safe.
- */
+ */// TODO: 2017/9/25 大肘子
 public final class EglCore {
     private static final String TAG = GlUtil.TAG;
 

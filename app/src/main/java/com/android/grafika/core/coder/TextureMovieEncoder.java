@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.grafika;
+package com.android.grafika.core.coder;
 
 import android.graphics.SurfaceTexture;
 import android.opengl.EGLContext;

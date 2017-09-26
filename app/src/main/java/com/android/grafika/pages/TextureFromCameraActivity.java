@@ -33,9 +33,9 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.app.Activity;
 
-import com.android.grafika.CameraUtils;
+import com.android.grafika.other.CameraUtils;
 import com.android.grafika.R;
-import com.android.grafika.ScaledDrawable2d;
+import com.android.grafika.other.ScaledDrawable2d;
 import com.android.grafika.gles.Drawable2d;
 import com.android.grafika.gles.EglCore;
 import com.android.grafika.gles.GlUtil;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.grafika;
+package com.android.grafika.other;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -22,6 +22,7 @@ import android.util.Log;
 import android.view.InflateException;
 import android.view.View;
 
+import com.android.grafika.R;
 import com.android.grafika.pages.MainActivity;
 
 /**

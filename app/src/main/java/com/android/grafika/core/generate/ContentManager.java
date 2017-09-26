@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.grafika;
+package com.android.grafika.core.generate;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -25,6 +25,8 @@ import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.android.grafika.R;
+import com.android.grafika.other.WorkDialog;
 import com.android.grafika.pages.MainActivity;
 
 import java.io.File;

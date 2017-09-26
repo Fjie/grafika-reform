@@ -23,10 +23,10 @@ import android.util.Log;
 import android.view.Surface;
 import android.view.TextureView;
 
-import com.android.grafika.ContentManager;
-import com.android.grafika.MoviePlayer;
+import com.android.grafika.core.generate.ContentManager;
+import com.android.grafika.core.player.MoviePlayer;
 import com.android.grafika.R;
-import com.android.grafika.SpeedControlCallback;
+import com.android.grafika.core.player.SpeedControlCallback;
 
 import java.io.File;
 import java.io.IOException;

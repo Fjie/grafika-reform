@@ -35,7 +35,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-import com.android.grafika.MiscUtils;
+import com.android.grafika.other.MiscUtils;
 import com.android.grafika.R;
 import com.android.grafika.gles.EglCore;
 import com.android.grafika.gles.GlUtil;

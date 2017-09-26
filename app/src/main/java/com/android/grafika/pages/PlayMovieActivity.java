@@ -33,10 +33,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.android.grafika.MiscUtils;
-import com.android.grafika.MoviePlayer;
+import com.android.grafika.other.MiscUtils;
+import com.android.grafika.core.player.MoviePlayer;
 import com.android.grafika.R;
-import com.android.grafika.SpeedControlCallback;
+import com.android.grafika.core.player.SpeedControlCallback;
 
 import java.io.File;
 import java.io.IOException;

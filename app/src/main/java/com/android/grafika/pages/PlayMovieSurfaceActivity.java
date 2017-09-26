@@ -30,11 +30,11 @@ import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.app.Activity;
 
-import com.android.grafika.AspectFrameLayout;
-import com.android.grafika.MiscUtils;
-import com.android.grafika.MoviePlayer;
+import com.android.grafika.other.AspectFrameLayout;
+import com.android.grafika.other.MiscUtils;
+import com.android.grafika.core.player.MoviePlayer;
 import com.android.grafika.R;
-import com.android.grafika.SpeedControlCallback;
+import com.android.grafika.core.player.SpeedControlCallback;
 import com.android.grafika.gles.EglCore;
 import com.android.grafika.gles.WindowSurface;
 

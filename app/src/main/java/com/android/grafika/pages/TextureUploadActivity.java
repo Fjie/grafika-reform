@@ -32,7 +32,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 
 import com.android.grafika.R;
-import com.android.grafika.WorkDialog;
+import com.android.grafika.other.WorkDialog;
 import com.android.grafika.gles.Drawable2d;
 import com.android.grafika.gles.EglCore;
 import com.android.grafika.gles.GlUtil;

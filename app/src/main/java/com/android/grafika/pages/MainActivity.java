@@ -25,8 +25,8 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-import com.android.grafika.AboutBox;
-import com.android.grafika.ContentManager;
+import com.android.grafika.other.AboutBox;
+import com.android.grafika.core.generate.ContentManager;
 import com.android.grafika.R;
 
 import java.util.ArrayList;

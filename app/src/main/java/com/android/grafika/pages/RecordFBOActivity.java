@@ -35,10 +35,10 @@ import android.widget.TextView;
 import android.app.Activity;
 import android.graphics.Rect;
 
-import com.android.grafika.MiscUtils;
+import com.android.grafika.other.MiscUtils;
 import com.android.grafika.R;
-import com.android.grafika.TextureMovieEncoder2;
-import com.android.grafika.VideoEncoderCore;
+import com.android.grafika.core.coder.TextureMovieEncoder2;
+import com.android.grafika.core.coder.VideoEncoderCore;
 import com.android.grafika.gles.Drawable2d;
 import com.android.grafika.gles.EglCore;
 import com.android.grafika.gles.FlatShadedProgram;

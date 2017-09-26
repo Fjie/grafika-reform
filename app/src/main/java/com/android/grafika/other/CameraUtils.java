@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.grafika;
+package com.android.grafika.other;
 
 import android.hardware.Camera;
 import android.util.Log;
@@ -25,7 +25,7 @@ import java.util.List;
 
 /**
  * Camera-related utility functions.
- */
+ */// TODO: 2017/9/25 相机工具
 public class CameraUtils {
     private static final String TAG = MainActivity.TAG;
 

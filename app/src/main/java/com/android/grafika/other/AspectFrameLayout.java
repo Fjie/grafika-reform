@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.grafika;
+package com.android.grafika.other;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -26,7 +26,7 @@ import com.android.grafika.pages.MainActivity;
 
 /**
  * Layout that adjusts to maintain a specific aspect ratio.
- */
+ */// TODO: 2017/9/25 诡异的布局类
 public class AspectFrameLayout extends FrameLayout {
     private static final String TAG = MainActivity.TAG + "-AFL";
 

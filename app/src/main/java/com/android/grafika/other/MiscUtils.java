@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.grafika;
+package com.android.grafika.other;
 
 import android.app.Activity;
 import android.content.Context;
