@@ -25,9 +25,9 @@ import android.os.Message;
 import android.util.Log;
 
 import com.android.grafika.gles.EglCore;
-import com.android.grafika.gles.FullFrameRect;
-import com.android.grafika.gles.Texture2dProgram;
-import com.android.grafika.gles.WindowSurface;
+import com.android.grafika.gles.draw_program.wrapper.FullFrameRect;
+import com.android.grafika.gles.draw_program.Texture2dProgram;
+import com.android.grafika.gles.surface_love_video_code.WindowSurface;
 import com.android.grafika.pages.MainActivity;
 
 import java.io.File;
@@ -54,11 +54,12 @@ import java.lang.ref.WeakReference;
  * <li>call TextureMovieEncoder#startRecording() with the config
  * <li>call TextureMovieEncoder#setTextureId() with the texture object that receives frames
  * <li>for each frame, after latching it with SurfaceTexture#updateTexImage(),
- *     call TextureMovieEncoder#frameAvailable().
+ * call TextureMovieEncoder#frameAvailable().
  * </ul>
- *
+ * <p>
  * TODO: tweak the API (esp. textureId) so it's less awkward for simple use cases.
- */
+ */// TODO: 2017/9/28 从纹理取下帧压成视频？
+// TODO: 2017/9/28 套路诡异 每个主要动作做三套：类方法，消息到handle -》 handle处理消息，调用方法 -》类方法影子方法，做实际操作
 public class TextureMovieEncoder implements Runnable {
     private static final String TAG = MainActivity.TAG;
     private static final boolean VERBOSE = false;
@@ -71,15 +72,15 @@ public class TextureMovieEncoder implements Runnable {
     private static final int MSG_QUIT = 5;
 
     // ----- accessed exclusively by encoder thread -----
-    private WindowSurface mInputWindowSurface;
-    private EglCore mEglCore;
-    private FullFrameRect mFullScreen;
-    private int mTextureId;
-    private int mFrameNum;
-    private VideoEncoderCore mVideoEncoder;
+    private WindowSurface mInputWindowSurface; // TODO: 2017/9/28 封装了surface 和egl的交互
+    private EglCore mEglCore;// TODO: 2017/9/28 与egl交互
+    private FullFrameRect mFullScreen;// TODO: 2017/9/28 帧和纹理之间搞点事情
+    private int mTextureId;// TODO: 2017/9/28 纹理句柄
+    private int mFrameNum;// TODO: 2017/9/28 帧号码，画盒子用的
+    private VideoEncoderCore mVideoEncoder;// TODO: 2017/9/28 视频编码核心？和windowSurface类很像
 
     // ----- accessed by multiple threads -----
-    private volatile EncoderHandler mHandler;
+    private volatile EncoderHandler mHandler; // TODO: 2017/9/28 与UI通信用
 
     private Object mReadyFence = new Object();      // guards ready/running
     private boolean mReady;
@@ -94,8 +95,9 @@ public class TextureMovieEncoder implements Runnable {
      * under us).
      * <p>
      * TODO: make frame rate and iframe interval configurable?  Maybe use builder pattern
-     *       with reasonable defaults for those and bit rate.
+     * with reasonable defaults for those and bit rate.
      */
+    // TODO: 2017/9/28 封装的配置类？
     public static class EncoderConfig {
         final File mOutputFile;
         final int mWidth;
@@ -104,7 +106,7 @@ public class TextureMovieEncoder implements Runnable {
         final EGLContext mEglContext;
 
         public EncoderConfig(File outputFile, int width, int height, int bitRate,
-                EGLContext sharedEglContext) {
+                             EGLContext sharedEglContext) {
             mOutputFile = outputFile;
             mWidth = width;
             mHeight = height;
@@ -135,8 +137,10 @@ public class TextureMovieEncoder implements Runnable {
                 return;
             }
             mRunning = true;
+            // TODO: 2017/9/28 开始运行本runnable
             new Thread(this, "TextureMovieEncoder").start();
-            while (!mReady) {
+            // TODO: 2017/9/28 这种操作？
+            while (!mReady) {// TODO: 2017/9/28 异步控制循环？
                 try {
                     mReadyFence.wait();
                 } catch (InterruptedException ie) {
@@ -192,7 +196,7 @@ public class TextureMovieEncoder implements Runnable {
      * or have a separate "block if still busy" method that the caller can execute immediately
      * before it calls updateTexImage().  The latter is preferred because we don't want to
      * stall the caller while this thread does work.
-     */
+     */// TODO: 2017/9/28 通知一个帧可以用了
     public void frameAvailable(SurfaceTexture st) {
         synchronized (mReadyFence) {
             if (!mReady) {
@@ -201,8 +205,8 @@ public class TextureMovieEncoder implements Runnable {
         }
 
         float[] transform = new float[16];      // TODO - avoid alloc every frame
-        st.getTransformMatrix(transform);
-        long timestamp = st.getTimestamp();
+        st.getTransformMatrix(transform);// TODO: 2017/9/28 取下变换矩阵？
+        long timestamp = st.getTimestamp();// TODO: 2017/9/28 取下时间戳？
         if (timestamp == 0) {
             // Seeing this after device is toggled off/on with power button.  The
             // first frame back has a zero timestamp.
@@ -212,7 +216,7 @@ public class TextureMovieEncoder implements Runnable {
             Log.w(TAG, "HEY: got SurfaceTexture with timestamp of zero");
             return;
         }
-
+        // TODO: 2017/9/28 发到handler?
         mHandler.sendMessage(mHandler.obtainMessage(MSG_FRAME_AVAILABLE,
                 (int) (timestamp >> 32), (int) timestamp, transform));
     }
@@ -222,7 +226,7 @@ public class TextureMovieEncoder implements Runnable {
      * we're receiving camera previews in.  (Call from non-encoder thread.)
      * <p>
      * TODO: do something less clumsy
-     */
+     */// TODO: 2017/9/28 纹理句柄
     public void setTextureId(int id) {
         synchronized (mReadyFence) {
             if (!mReady) {
@@ -235,11 +239,13 @@ public class TextureMovieEncoder implements Runnable {
     /**
      * Encoder thread entry point.  Establishes Looper/Handler and waits for messages.
      * <p>
+     *
      * @see java.lang.Thread#run()
      */
     @Override
     public void run() {
         // Establish a Looper for this thread, and define a Handler for it.
+        // TODO: 2017/9/28 就一个干循环？
         Looper.prepare();
         synchronized (mReadyFence) {
             mHandler = new EncoderHandler(this);
@@ -258,9 +264,10 @@ public class TextureMovieEncoder implements Runnable {
 
     /**
      * Handles encoder state change requests.  The handler is created on the encoder thread.
-     */
+     */// TODO: 2017/9/28 这个套路不明啊
+    // TODO: 2017/9/28 在这里拿着外部类的引用，根据发来的消息做操作？
     private static class EncoderHandler extends Handler {
-        private WeakReference<TextureMovieEncoder> mWeakEncoder;
+        private WeakReference<TextureMovieEncoder> mWeakEncoder;// TODO: 2017/9/28 外部类的对象
 
         public EncoderHandler(TextureMovieEncoder encoder) {
             mWeakEncoder = new WeakReference<TextureMovieEncoder>(encoder);
@@ -304,6 +311,8 @@ public class TextureMovieEncoder implements Runnable {
         }
     }
 
+    // TODO: 2017/9/28 以下是在handle调用的方法
+
     /**
      * Starts recording.
      */
@@ -311,7 +320,7 @@ public class TextureMovieEncoder implements Runnable {
         Log.d(TAG, "handleStartRecording " + config);
         mFrameNum = 0;
         prepareEncoder(config.mEglContext, config.mWidth, config.mHeight, config.mBitRate,
-                config.mOutputFile);
+                config.mOutputFile);// TODO: 2017/9/28 准备录制
     }
 
     /**
@@ -320,18 +329,19 @@ public class TextureMovieEncoder implements Runnable {
      * The texture is rendered onto the encoder's input surface, along with a moving
      * box (just because we can).
      * <p>
-     * @param transform The texture transform, from SurfaceTexture.
+     *
+     * @param transform      The texture transform, from SurfaceTexture.
      * @param timestampNanos The frame's timestamp, from SurfaceTexture.
      */
     private void handleFrameAvailable(float[] transform, long timestampNanos) {
         if (VERBOSE) Log.d(TAG, "handleFrameAvailable tr=" + transform);
-        mVideoEncoder.drainEncoder(false);
-        mFullScreen.drawFrame(mTextureId, transform);
+        mVideoEncoder.drainEncoder(false);// TODO: 2017/9/28 编码数据放到混编器
+        mFullScreen.drawFrame(mTextureId, transform);// TODO: 2017/9/28 这一下纹理就画上屏幕了
 
-        drawBox(mFrameNum++);
+        drawBox(mFrameNum++);// TODO: 2017/9/28 画个盒子
 
-        mInputWindowSurface.setPresentationTime(timestampNanos);
-        mInputWindowSurface.swapBuffers();
+        mInputWindowSurface.setPresentationTime(timestampNanos);// TODO: 2017/9/28 设置帧纳秒数
+        mInputWindowSurface.swapBuffers();// TODO: 2017/9/28 帧数据到屏幕了
     }
 
     /**
@@ -339,7 +349,7 @@ public class TextureMovieEncoder implements Runnable {
      */
     private void handleStopRecording() {
         Log.d(TAG, "handleStopRecording");
-        mVideoEncoder.drainEncoder(true);
+        mVideoEncoder.drainEncoder(true);// TODO: 2017/9/28 结束了编码信息交换？
         releaseEncoder();
     }
 
@@ -357,7 +367,7 @@ public class TextureMovieEncoder implements Runnable {
      * <p>
      * This is useful if the old context we were sharing with went away (maybe a GLSurfaceView
      * that got torn down) and we need to hook up with the new one.
-     */
+     */// TODO: 2017/9/28 更新上下文，主要插件重新构造一遍
     private void handleUpdateSharedContext(EGLContext newSharedContext) {
         Log.d(TAG, "handleUpdatedSharedContext " + newSharedContext);
 
@@ -376,10 +386,11 @@ public class TextureMovieEncoder implements Runnable {
                 new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
     }
 
+    // TODO: 2017/9/28 准备编码
     private void prepareEncoder(EGLContext sharedContext, int width, int height, int bitRate,
-            File outputFile) {
+                                File outputFile) {
         try {
-            mVideoEncoder = new VideoEncoderCore(width, height, bitRate, outputFile);
+            mVideoEncoder = new VideoEncoderCore(width, height, bitRate, outputFile);// TODO: 2017/9/28 视频编码核心
         } catch (IOException ioe) {
             throw new RuntimeException(ioe);
         }
@@ -412,10 +423,12 @@ public class TextureMovieEncoder implements Runnable {
      */
     private void drawBox(int posn) {
         final int width = mInputWindowSurface.getWidth();
+        final int height = mInputWindowSurface.getHeight();
         int xpos = (posn * 4) % (width - 50);
+        int ypos = (posn * 4) % (height - 50);
         GLES20.glEnable(GLES20.GL_SCISSOR_TEST);
-        GLES20.glScissor(xpos, 0, 100, 100);
-        GLES20.glClearColor(1.0f, 0.0f, 1.0f, 1.0f);
+        GLES20.glScissor(xpos, ypos, 80, 80);
+        GLES20.glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
         GLES20.glDisable(GLES20.GL_SCISSOR_TEST);
     }

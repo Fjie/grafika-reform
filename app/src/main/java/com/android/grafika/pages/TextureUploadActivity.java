@@ -33,12 +33,12 @@ import android.graphics.Bitmap;
 
 import com.android.grafika.R;
 import com.android.grafika.other.WorkDialog;
-import com.android.grafika.gles.Drawable2d;
+import com.android.grafika.gles.draw_program.wrapper.Drawable2d;
 import com.android.grafika.gles.EglCore;
 import com.android.grafika.gles.GlUtil;
-import com.android.grafika.gles.OffscreenSurface;
-import com.android.grafika.gles.Sprite2d;
-import com.android.grafika.gles.Texture2dProgram;
+import com.android.grafika.gles.surface_love_video_code.OffscreenSurface;
+import com.android.grafika.gles.draw_program.wrapper.Sprite2d;
+import com.android.grafika.gles.draw_program.Texture2dProgram;
 
 import java.io.BufferedOutputStream;
 import java.io.File;

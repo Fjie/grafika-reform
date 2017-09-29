@@ -1,4 +1,4 @@
-#Thu Sep 14 17:45:44 CST 2017
+#Tue Sep 26 18:30:12 CST 2017
 base.0=C\:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_3
 renamed.0=classes.dex
 file.0=C\:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_3\\classes.dex

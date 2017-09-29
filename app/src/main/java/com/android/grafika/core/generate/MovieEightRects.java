@@ -29,7 +29,7 @@ import java.io.IOException;
  * rectangle is highlighted in each frame.
  * <p>
  * To add a little flavor, the timing of the frames speeds up as the movie continues.
- */
+ */ // TODO: 2017/9/26 这个造出的视频帧时间不均匀
 public class MovieEightRects extends GeneratedMovie {
     private static final String TAG = MainActivity.TAG;
 
@@ -38,7 +38,7 @@ public class MovieEightRects extends GeneratedMovie {
     private static final int HEIGHT = 240;
     private static final int BIT_RATE = 2000000;
     private static final int NUM_FRAMES = 32;
-    private static final int FRAMES_PER_SECOND = 30;
+    private static final int FRAMES_PER_SECOND = 30;// TODO: 2017/9/26 这个发出去配置编解码用的
 
     // RGB color values for generated frames
     private static final int TEST_R0 = 0;
@@ -88,7 +88,8 @@ public class MovieEightRects extends GeneratedMovie {
      *   7 6 5 4
      * </pre>
      * We draw one of the eight rectangles and leave the rest set to the clear color.
-     */
+     */// TODO: 2017/9/26 帧时间不均匀
+    // TODO: 2017/9/26 通过设置surface渲染的停留时间来实现速度设置
     private void generateFrame(int frameIndex) {
         frameIndex %= 8;
 

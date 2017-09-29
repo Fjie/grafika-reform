@@ -33,7 +33,7 @@ import android.os.Trace;
 
 import com.android.grafika.R;
 import com.android.grafika.gles.EglCore;
-import com.android.grafika.gles.WindowSurface;
+import com.android.grafika.gles.surface_love_video_code.WindowSurface;
 
 /**
  * Exercises some less-commonly-used aspects of SurfaceView.  In particular:

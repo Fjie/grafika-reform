@@ -36,9 +36,9 @@ import com.android.grafika.other.CameraUtils;
 import com.android.grafika.core.coder.CircularEncoder;
 import com.android.grafika.R;
 import com.android.grafika.gles.EglCore;
-import com.android.grafika.gles.FullFrameRect;
-import com.android.grafika.gles.Texture2dProgram;
-import com.android.grafika.gles.WindowSurface;
+import com.android.grafika.gles.draw_program.wrapper.FullFrameRect;
+import com.android.grafika.gles.draw_program.Texture2dProgram;
+import com.android.grafika.gles.surface_love_video_code.WindowSurface;
 
 import java.io.File;
 import java.io.IOException;

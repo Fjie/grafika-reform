@@ -20,12 +20,12 @@
         "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_chor_test.xml"
     },
     {
-        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_codec_open.xml",
-        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_codec_open.xml"
-    },
-    {
         "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_texture_view_gl.xml",
         "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_texture_view_gl.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_codec_open.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_codec_open.xml"
     },
     {
         "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_hardware_scaler.xml",
@@ -60,12 +60,12 @@
         "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_texture_view_canvas.xml"
     },
     {
-        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_texture_upload.xml",
-        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_texture_upload.xml"
-    },
-    {
         "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_scheduled_swap.xml",
         "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_scheduled_swap.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_texture_upload.xml",
+        "source": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\src\\main\\res\\layout\\activity_texture_upload.xml"
     },
     {
         "merged": "C:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_double_decode.xml",

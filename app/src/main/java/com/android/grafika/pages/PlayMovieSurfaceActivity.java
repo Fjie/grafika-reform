@@ -36,7 +36,7 @@ import com.android.grafika.core.player.MoviePlayer;
 import com.android.grafika.R;
 import com.android.grafika.core.player.SpeedControlCallback;
 import com.android.grafika.gles.EglCore;
-import com.android.grafika.gles.WindowSurface;
+import com.android.grafika.gles.surface_love_video_code.WindowSurface;
 
 import java.io.File;
 import java.io.IOException;

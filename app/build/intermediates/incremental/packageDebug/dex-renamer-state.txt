@@ -1,4 +1,4 @@
-#Fri Sep 22 14:22:31 CST 2017
+#Tue Sep 26 18:30:13 CST 2017
 base.0=C\:\\Users\\admin\\Android\\AndroidStudioProjects\\grafika-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_4e8abc7394f4e8b22d5b14590a7f609125640507
 renamed.1=classes2.dex
 renamed.0=classes.dex

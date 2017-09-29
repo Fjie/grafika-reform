@@ -36,12 +36,12 @@ import android.app.Activity;
 import com.android.grafika.other.CameraUtils;
 import com.android.grafika.R;
 import com.android.grafika.other.ScaledDrawable2d;
-import com.android.grafika.gles.Drawable2d;
+import com.android.grafika.gles.draw_program.wrapper.Drawable2d;
 import com.android.grafika.gles.EglCore;
 import com.android.grafika.gles.GlUtil;
-import com.android.grafika.gles.Sprite2d;
-import com.android.grafika.gles.Texture2dProgram;
-import com.android.grafika.gles.WindowSurface;
+import com.android.grafika.gles.draw_program.wrapper.Sprite2d;
+import com.android.grafika.gles.draw_program.Texture2dProgram;
+import com.android.grafika.gles.surface_love_video_code.WindowSurface;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;

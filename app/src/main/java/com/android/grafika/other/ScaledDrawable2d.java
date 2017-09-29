@@ -15,7 +15,7 @@
  */
 package com.android.grafika.other;
 
-import com.android.grafika.gles.Drawable2d;
+import com.android.grafika.gles.draw_program.wrapper.Drawable2d;
 import com.android.grafika.pages.MainActivity;
 
 import java.nio.ByteBuffer;

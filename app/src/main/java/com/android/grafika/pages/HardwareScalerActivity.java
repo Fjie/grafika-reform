@@ -35,14 +35,14 @@ import android.app.Activity;
 import android.graphics.Rect;
 
 import com.android.grafika.R;
-import com.android.grafika.gles.Drawable2d;
+import com.android.grafika.gles.draw_program.wrapper.Drawable2d;
 import com.android.grafika.gles.EglCore;
-import com.android.grafika.gles.FlatShadedProgram;
+import com.android.grafika.gles.draw_program.FlatShadedProgram;
 import com.android.grafika.gles.GeneratedTexture;
 import com.android.grafika.gles.GlUtil;
-import com.android.grafika.gles.Sprite2d;
-import com.android.grafika.gles.Texture2dProgram;
-import com.android.grafika.gles.WindowSurface;
+import com.android.grafika.gles.draw_program.wrapper.Sprite2d;
+import com.android.grafika.gles.draw_program.Texture2dProgram;
+import com.android.grafika.gles.surface_love_video_code.WindowSurface;
 
 import java.lang.ref.WeakReference;
 

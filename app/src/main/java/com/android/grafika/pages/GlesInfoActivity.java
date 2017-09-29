@@ -27,7 +27,7 @@ import android.app.Activity;
 
 import com.android.grafika.R;
 import com.android.grafika.gles.EglCore;
-import com.android.grafika.gles.OffscreenSurface;
+import com.android.grafika.gles.surface_love_video_code.OffscreenSurface;
 
 import java.io.File;
 import java.io.FileWriter;

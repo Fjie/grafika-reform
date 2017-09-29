@@ -38,8 +38,8 @@ import com.android.grafika.other.AspectFrameLayout;
 import com.android.grafika.other.CameraUtils;
 import com.android.grafika.R;
 import com.android.grafika.core.coder.TextureMovieEncoder;
-import com.android.grafika.gles.FullFrameRect;
-import com.android.grafika.gles.Texture2dProgram;
+import com.android.grafika.gles.draw_program.wrapper.FullFrameRect;
+import com.android.grafika.gles.draw_program.Texture2dProgram;
 
 import java.io.File;
 import java.io.IOException;

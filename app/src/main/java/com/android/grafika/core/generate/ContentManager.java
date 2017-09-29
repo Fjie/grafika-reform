@@ -92,7 +92,7 @@ public class ContentManager {
      * Returns true if all of the content has been created.
      * <p>
      * If this returns false, call createAll.
-     */
+     */// TODO: 2017/9/26 尝试读一下看看是否都创建
     public boolean isContentCreated(@SuppressWarnings("unused") Context unused) {
         // Ideally this would probe each individual item to see if anything needs to be done,
         // and a subsequent "prepare" call would generate only the necessary items.  This
@@ -113,7 +113,7 @@ public class ContentManager {
      * Creates all content, overwriting any existing entries.
      * <p>
      * Call from main UI thread.
-     */
+     */// TODO: 2017/9/26 创建所有视频
     public void createAll(Activity caller) {
         prepareContent(caller, ALL_TAGS);
     }
@@ -124,14 +124,14 @@ public class ContentManager {
      * <p>
      * Call from main UI thread.  This returns immediately.  Content generation continues
      * on a background thread.
-     */
+     */// TODO: 2017/9/26 准备内容?
     public void prepareContent(Activity caller, int[] tags) {
         // Put up the progress dialog.
         AlertDialog.Builder builder = WorkDialog.create(caller, R.string.preparing_content);
         builder.setCancelable(false);
         AlertDialog dialog = builder.show();
 
-        // Generate content in async task.
+        // Generate content in async task.// TODO: 2017/9/26 走线程创建
         GenerateTask genTask = new GenerateTask(caller, dialog, tags);
         genTask.execute();
     }

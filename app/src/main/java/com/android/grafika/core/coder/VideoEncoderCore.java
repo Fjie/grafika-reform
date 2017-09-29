@@ -48,12 +48,12 @@ public class VideoEncoderCore {
     private static final int FRAME_RATE = 30;               // 30fps
     private static final int IFRAME_INTERVAL = 5;           // 5 seconds between I-frames
 
-    private Surface mInputSurface;
-    private MediaMuxer mMuxer;
-    private MediaCodec mEncoder;
-    private MediaCodec.BufferInfo mBufferInfo;
-    private int mTrackIndex;
-    private boolean mMuxerStarted;
+    private Surface mInputSurface;// TODO: 2017/9/28 编解码器给的
+    private MediaMuxer mMuxer;// TODO: 2017/9/28 混编器
+    private MediaCodec mEncoder;// TODO: 2017/9/28 编解码器
+    private MediaCodec.BufferInfo mBufferInfo;// TODO: 2017/9/28 媒体信息buf
+    private int mTrackIndex;// TODO: 2017/9/28 Track句柄
+    private boolean mMuxerStarted;// TODO: 2017/9/28 开始混编标记
 
 
     /**
@@ -62,7 +62,7 @@ public class VideoEncoderCore {
     public VideoEncoderCore(int width, int height, int bitRate, File outputFile)
             throws IOException {
         mBufferInfo = new MediaCodec.BufferInfo();
-
+        // TODO: 2017/9/28 配置格式
         MediaFormat format = MediaFormat.createVideoFormat(MIME_TYPE, width, height);
 
         // Set some properties.  Failing to specify some of these can cause the MediaCodec
@@ -73,12 +73,12 @@ public class VideoEncoderCore {
         format.setInteger(MediaFormat.KEY_FRAME_RATE, FRAME_RATE);
         format.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, IFRAME_INTERVAL);
         if (VERBOSE) Log.d(TAG, "format: " + format);
-
+        // TODO: 2017/9/28 配置编解码器
         // Create a MediaCodec encoder, and configure it with our format.  Get a Surface
         // we can use for input and wrap it with a class that handles the EGL work.
-        mEncoder = MediaCodec.createEncoderByType(MIME_TYPE);
+        mEncoder = MediaCodec.createEncoderByType(MIME_TYPE);// TODO: 2017/9/28 指定解码类型
         mEncoder.configure(format, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE);
-        mInputSurface = mEncoder.createInputSurface();
+        mInputSurface = mEncoder.createInputSurface();// TODO: 2017/9/28 拿到输入inputSurface
         mEncoder.start();
 
         // Create a MediaMuxer.  We can't add the video track and start() the muxer here,
