@@ -55,6 +55,10 @@ public class MainActivity extends ListActivity {
             {"* Play video (TextureView)",
                     "Plays .mp4 videos created by Grafika",
                     "PlayMovieActivity"},
+            {"* TestVideoFilter",
+                    "biu~ biu~ biu~",
+                    "TestVideoFilterActivity"},
+
             {"Continuous capture",
                     "Records camera continuously, saves a snapshot when requested",
                     "ContinuousCaptureActivity"},

@@ -23,6 +23,7 @@ import android.util.Log;
 import com.android.grafika.gles.GlUtil;
 
 import java.nio.FloatBuffer;
+import java.util.Arrays;
 
 /**
  * GL program and supporting functions for textured 2D shapes.
@@ -268,7 +269,8 @@ public class Texture2dProgram {
             -rw, 0f,    0f, 0f,     rw, 0f,
             -rw, rh,    0f, rh,     rw, rh
         };
-        //Log.d(TAG, "filt size: " + width + "x" + height + ": " + Arrays.toString(mTexOffset));
+
+        Log.d(TAG, "filt size: " + width + "x" + height + ": " + Arrays.toString(mTexOffset));
     }
 
     /**

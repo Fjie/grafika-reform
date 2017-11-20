@@ -48,28 +48,29 @@ import java.lang.ref.WeakReference;
 
 /**
  * Direct the Camera preview to a GLES texture and manipulate it.
- * <p>
+ * <p> TODO 相机直接渲染到纹理
  * We manage the Camera and GLES rendering from a dedicated thread.  We don't animate anything,
  * so we don't need a Choreographer heartbeat -- just redraw when we get a new frame from the
  * camera or the user has caused a change in size or position.
- * <p>
+ * <p> TODO 每从相机获取到一个帧就渲染一次
  * The Camera needs to follow the activity pause/resume cycle so we don't keep it locked
  * while we're in the background.  Also, for power reasons, we don't want to keep getting
  * frames when the screen is off.  As noted in
  * http://source.android.com/devices/graphics/architecture.html#activity
  * the Surface lifecycle isn't quite the same as the activity's.  We follow approach #1.
- * <p>
+ * <p>TODO 处理相机和Activity的生命周期问题
  * The tricky part about the lifecycle is that our SurfaceView's Surface can outlive the
  * Activity, and we can get surface callbacks while paused, so we need to keep track of it
  * in a static variable and be prepared for calls at odd times.
- * <p>
+ * <p>TODO 关于生命周期的一个棘手的部分是，我们的Surface视图的表面可以比活动的寿命长，
+ * TODO 而且我们可以在暂停的时候得到表面回调，所以我们需要在静态变量中跟踪它，并在奇怪的时候为调用做好准备
  * The zoom, size, and rotate values are determined by the values stored in the "seek bars"
  * (sliders).  When the device is rotated, the Activity is paused and resumed, but the
  * controls retain their value, which is kind of nice.  The position, set by touch, is lost
  * on rotation.
- * <p>
+ * <p> TODO 用控制条的值控制缩放旋转等
  * The UI updates go through a multi-stage process:
- * <ol>
+ * <ol>TODO UI 更新过程：拖动滑块、传递百分比数值给渲染线程、渲染器做具体计算和更新，并把计算值（长宽像素比什么的）返给主线程显示
  * <li> The user updates a slider.
  * <li> The new value is passed as a percent to the render thread.
  * <li> The render thread converts the percent to something concrete (e.g. size in pixels).
@@ -79,6 +80,7 @@ import java.lang.ref.WeakReference;
  * <li> (For most things) The UI thread updates some text views.
  * </ol>
  */
+
 public class TextureFromCameraActivity extends Activity implements SurfaceHolder.Callback,
         SeekBar.OnSeekBarChangeListener {
     private static final String TAG = MainActivity.TAG;

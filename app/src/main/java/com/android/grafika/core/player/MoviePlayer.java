@@ -29,6 +29,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
+import static com.android.grafika.other.UtilsKt.selectTrack;
+
 
 /**
  * Plays the video track from a movie file to a Surface.
@@ -122,7 +124,8 @@ public class MoviePlayer {
             // TODO: 2017/9/14 调用底层方法取信息？
             extractor.selectTrack(trackIndex);// TODO: 2017/9/14 这行几个意思？
 
-            MediaFormat format = extractor.getTrackFormat(trackIndex);// TODO: 2017/9/14 根据下标取信息省点事儿
+            MediaFormat format = extractor.getTrackFormat(trackIndex);
+            // TODO: 2017/9/14 根据下标取信息省点事儿
             mVideoWidth = format.getInteger(MediaFormat.KEY_WIDTH);
             mVideoHeight = format.getInteger(MediaFormat.KEY_HEIGHT);
             if (VERBOSE) {
@@ -378,27 +381,7 @@ public class MoviePlayer {
 
 
 
-    /**
-     * Selects the video track, if any.
-     *
-     * @return the track index, or -1 if no video track is found.
-     */// TODO: 2017/9/14 不太懂，取某种媒体信息
-    private static int selectTrack(MediaExtractor extractor) {
-        // Select the first video track we find, ignore the rest.
-        int numTracks = extractor.getTrackCount();
-        for (int i = 0; i < numTracks; i++) {// TODO: 2017/9/14 遍历track
-            MediaFormat format = extractor.getTrackFormat(i);
-            String mime = format.getString(MediaFormat.KEY_MIME);
-            if (mime.startsWith("video/")) {// TODO: 2017/9/14 取到video的信息，返回对应下标
-                if (VERBOSE) {
-                    Log.d(TAG, "Extractor selected track " + i + " (" + mime + "): " + format);
-                }
-                return i;
-            }
-        }
 
-        return -1;
-    }
 
     /**
      * Thread helper for video playback.

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright 2013 Google Inc. All rights reserved.
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,11 +13,10 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.grafika"
     android:versionCode="33"
-    android:versionName="1.0" >
+    android:versionName="1.0">
 
     <uses-sdk
         android:minSdkVersion="18"
@@ -27,17 +25,23 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
-    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
+
         <!-- android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar" > -->
         <activity
-            android:name="com.android.grafika.pages.MainActivity"
-            android:label="@string/app_name" >
+            android:name=".pages.MainActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -45,33 +49,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.android.grafika.pages.ReadPixelsActivity"
-            android:label="@string/title_activity_read_pixels" >
-        </activity>
+            android:name=".pages.ReadPixelsActivity"
+            android:label="@string/title_activity_read_pixels"/>
         <activity
-            android:name="com.android.grafika.pages.PlayMovieActivity"
-            android:label="@string/title_activity_play_movie" >
-        </activity>
+            android:name=".pages.PlayMovieActivity"
+            android:label="@string/title_activity_play_movie"/>
         <activity
-            android:name="com.android.grafika.pages.LiveCameraActivity"
-            android:label="@string/title_activity_live_camera" >
-        </activity>
+            android:name=".pages.LiveCameraActivity"
+            android:label="@string/title_activity_live_camera"/>
         <activity
-            android:name="com.android.grafika.pages.CameraCaptureActivity"
-            android:label="@string/title_activity_camera_capture" >
-        </activity>
+            android:name=".pages.CameraCaptureActivity"
+            android:label="@string/title_activity_camera_capture"/>
         <activity
-            android:name="com.android.grafika.pages.TextureViewGLActivity"
-            android:label="@string/title_activity_texture_view_gl" >
-        </activity>
+            android:name=".pages.TextureViewGLActivity"
+            android:label="@string/title_activity_texture_view_gl"/>
         <activity
-            android:name="com.android.grafika.pages.TextureViewCanvasActivity"
-            android:label="@string/title_activity_texture_view_canvas" >
-        </activity>
+            android:name=".pages.TextureViewCanvasActivity"
+            android:label="@string/title_activity_texture_view_canvas"/>
         <activity
-            android:name="com.android.grafika.pages.RecordFBOActivity"
+            android:name=".pages.RecordFBOActivity"
             android:label="@string/title_activity_record_fbo"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
 
             <!-- android:screenOrientation="landscape" -->
             <!--
@@ -81,61 +79,54 @@
             <!-- android:theme="@android:style/Theme.NoTitleBar.Fullscreen" -->
         </activity>
         <activity
-            android:name="com.android.grafika.pages.ChorTestActivity"
-            android:label="@string/title_activity_chor_test" >
-        </activity>
+            android:name=".pages.ChorTestActivity"
+            android:label="@string/title_activity_chor_test" />
         <activity
-            android:name="com.android.grafika.pages.DoubleDecodeActivity"
-            android:label="@string/title_activity_double_decode" >
-        </activity>
+            android:name=".pages.DoubleDecodeActivity"
+            android:label="@string/title_activity_double_decode" />
         <activity
-            android:name="com.android.grafika.pages.ContinuousCaptureActivity"
-            android:label="@string/title_activity_continuous_capture" >
-        </activity>
+            android:name=".pages.ContinuousCaptureActivity"
+            android:label="@string/title_activity_continuous_capture" />
         <activity
-            android:name="com.android.grafika.pages.SoftInputSurfaceActivity"
-            android:label="@string/title_activity_soft_input_surface" >
-        </activity>
+            android:name=".pages.SoftInputSurfaceActivity"
+            android:label="@string/title_activity_soft_input_surface" />
         <activity
-            android:name="com.android.grafika.pages.HardwareScalerActivity"
+            android:name=".pages.HardwareScalerActivity"
             android:label="@string/title_activity_hardware_scaler"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-        </activity>
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
-            android:name="com.android.grafika.pages.GlesInfoActivity"
-            android:label="@string/title_activity_gles_info" >
-        </activity>
+            android:name=".pages.GlesInfoActivity"
+            android:label="@string/title_activity_gles_info" />
         <activity
-            android:name="com.android.grafika.pages.PlayMovieSurfaceActivity"
-            android:label="@string/title_activity_play_movie_surface" >
-        </activity>
+            android:name=".pages.PlayMovieSurfaceActivity"
+            android:label="@string/title_activity_play_movie_surface" />
         <activity
-            android:name="com.android.grafika.pages.MultiSurfaceActivity"
+            android:name=".pages.MultiSurfaceActivity"
             android:label="@string/title_activity_multi_surface_test"
-            android:theme="@android:style/Theme.Holo" >
-        </activity>
+            android:theme="@android:style/Theme.Holo" />
         <activity
-            android:name="com.android.grafika.pages.CodecOpenActivity"
-            android:label="@string/title_activity_codec_open" >
-        </activity>
+            android:name=".pages.CodecOpenActivity"
+            android:label="@string/title_activity_codec_open" />
         <activity
-            android:name="com.android.grafika.pages.TextureUploadActivity"
-            android:label="@string/title_activity_texture_upload" >
-        </activity>
+            android:name=".pages.TextureUploadActivity"
+            android:label="@string/title_activity_texture_upload" />
         <activity
-            android:name="com.android.grafika.pages.ColorBarActivity"
+            android:name=".pages.ColorBarActivity"
             android:label="@string/title_color_bar"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-        </activity>
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
-            android:name="com.android.grafika.pages.ScheduledSwapActivity"
+            android:name=".pages.ScheduledSwapActivity"
             android:label="@string/title_scheduled_swap"
-            android:theme="@android:style/Theme.Black" >
-        </activity>
+            android:theme="@android:style/Theme.Black" />
         <activity
-            android:name="com.android.grafika.pages.TextureFromCameraActivity"
+            android:name=".pages.TextureFromCameraActivity"
             android:label="@string/title_texture_from_camera"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name=".pages.TestVideoFilterActivity"
+            android:label="诡异！"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+
         </activity>
     </application>
 
